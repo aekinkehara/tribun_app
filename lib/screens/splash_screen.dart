@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/get_core.dart';
-import 'package:tribun_app/routes/app_routes.dart';
 import 'package:tribun_app/utils/app_colors.dart';
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -19,43 +15,42 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override 
   void initState() {
-    super.initState();
+   super.initState();
     _animationController = AnimationController(
       duration: Duration(seconds: 2),
-      vsync: this
+      vsync: this,
     );
 
-    _fadeAnimation = Tween<double> (
-      begin: 0.0,
-      end: 1.0
+    _fadeAnimation = Tween<double>(
+      begin: 0.5,
+      end: 1.0,
     ).animate(CurvedAnimation(
       parent: _animationController,
-      curve: Curves.easeInOut
+      curve: Curves.easeInOut,
     ));
-
     _scaleAnimation = Tween<double>(
       begin: 0.5,
-      end: 1.0
+      end: 1.0,
     ).animate(CurvedAnimation(
       parent: _animationController,
-      curve: Curves.elasticInOut
+      curve: Curves.elasticOut,
     ));
-    
-    _animationController.forward();
-    // navigate to homescreen after 3 seconds
-    Future.delayed(Duration(seconds: 3), () {
-      Get.offAllNamed(Routes);
-    });
-  }
 
-   @override
+    _animationController.forward();
+
+    // // Navigate to home after 3 seconds
+    //  Future.delayed(Duration(seconds: 3), () {
+    //   Get.offAllNamed(Routes.home);
+    // });
+  }
+  @override
   void dispose() {
     _animationController.dispose();
     super.dispose();
   }
-  
+
   @override
-  Widget build(BuildContext context) {
+   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primary,
       body: Center(
@@ -79,9 +74,9 @@ class _SplashScreenState extends State<SplashScreen>
                           BoxShadow(
                             color: Colors.black.withValues(alpha: 0.2),
                             blurRadius: 20,
-                            offset: Offset(0, 10)
-                          )
-                        ]
+                            offset: Offset(0, 10),
+                          ),
+                        ],
                       ),
                       child: Icon(
                         Icons.newspaper,
@@ -96,21 +91,21 @@ class _SplashScreenState extends State<SplashScreen>
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
-                        letterSpacing: 1.5
+                        letterSpacing: 1.5,
                       ),
                     ),
                     SizedBox(height: 10),
                     Text(
-                      'Stay updated with the latest news',
+                      'Stay Updated with Latest News',
                       style: TextStyle(
                         fontSize: 16,
-                        color: Colors.white.withValues(alpha: 0.8)
+                        color: Colors.white.withValues( alpha: 0.8),
                       ),
                     ),
                     SizedBox(height: 50),
                     CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -121,3 +116,4 @@ class _SplashScreenState extends State<SplashScreen>
     );
   }
 }
+
