@@ -1,5 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
+// part of itu bagian dari, app routes itu anak dari app pages, ga bisa berdiri tanpa app routes
 part of 'app_pages.dart';
 
 abstract class Routes {
