@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:tribun_app/utils/app_colors.dart';
 
 class LoadingShimmer extends StatefulWidget {
