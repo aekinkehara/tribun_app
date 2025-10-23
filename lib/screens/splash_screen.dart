@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:tribun_app/routes/app_pages.dart';
 import 'package:tribun_app/utils/app_colors.dart';
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -38,10 +40,10 @@ class _SplashScreenState extends State<SplashScreen>
 
     _animationController.forward();
 
-    // // Navigate to home after 3 seconds
-    //  Future.delayed(Duration(seconds: 3), () {
-    //   Get.offAllNamed(Routes.home);
-    // });
+    // Navigate to home after 3 seconds
+     Future.delayed(Duration(seconds: 3), () {
+      Get.offAllNamed(Routes.HOME);
+    });
   }
   @override
   void dispose() {
