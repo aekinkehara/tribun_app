@@ -25,8 +25,13 @@ class NewsController extends GetxController{
 
   // begitu aplikasi dibuka, aplikasi langsung menampilkan berita utama 
   //dari endpoint top-headlines
-  // TODO: Fetching data dari endpoint top-headlines
+  @override
+  void onInit() {
+    super.onInit();
+    fetchTopHeadlines(); // <<< langsung fetch berita utama pas controller dibuat
+  }
 
+  // TODO: Fetching data dari endpoint top-headlines
   Future<void> fetchTopHeadlines({String? category}) async {
     // blok ini akan dijalankan ketika request ke API berhasil
     try {

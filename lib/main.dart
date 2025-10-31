@@ -7,11 +7,8 @@ import 'package:tribun_app/utils/app_colors.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // load environtment variables first before running the app
   await dotenv.load(fileName: '.env');
-
-  runApp(NewsApp());
+  runApp(const NewsApp());
 }
 
 class NewsApp extends StatelessWidget {
@@ -20,27 +17,42 @@ class NewsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        title: 'News App',
-        theme: ThemeData(
-            primarySwatch: Colors.blue,
-            primaryColor: AppColors.primary,
-            scaffoldBackgroundColor: AppColors.background,
-            appBarTheme: AppBarTheme(
-                backgroundColor: AppColors.primary,
-                foregroundColor: Colors.white,
-                elevation: 0,
-            ),
-            elevatedButtonTheme: ElevatedButtonThemeData(
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primary,
-                    foregroundColor: Colors.white
-                )
-            )
+      title: 'Goodable News',
+      debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.system, // 🔄 otomatis ikuti mode sistem
+      theme: ThemeData(
+        brightness: Brightness.light,
+        primaryColor: AppColors.primary,
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+          elevation: 0,
         ),
-        initialRoute: AppPages.INITIAL,
-        getPages: AppPages.routes,
-        initialBinding: AppBindings(),
-        debugShowCheckedModeBanner: false,
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          backgroundColor: Colors.white,
+          selectedItemColor: Colors.blue,
+          unselectedItemColor: Colors.grey,
+        ),
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        primaryColor: Colors.blue[300],
+        scaffoldBackgroundColor: const Color(0xFF121212),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF121212),
+          foregroundColor: Colors.white,
+          elevation: 0,
+        ),
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          backgroundColor: Color(0xFF1E1E1E),
+          selectedItemColor: Colors.blueAccent,
+          unselectedItemColor: Colors.grey,
+        ),
+      ),
+      initialBinding: AppBindings(),
+      initialRoute: AppPages.INITIAL,
+      getPages: AppPages.routes,
     );
   }
 }

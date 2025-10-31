@@ -16,11 +16,11 @@ class CategoryChip extends StatelessWidget {
         label: Text(label),
         selected: isSelected,
         onSelected: (_) => onTap(),
-        backgroundColor: Colors.grey[100],
+        backgroundColor: AppColors.secondary.withValues(alpha: 0.2),
         selectedColor: AppColors.primary.withValues(alpha: 0.2),
         checkmarkColor: AppColors.primary,
         labelStyle: TextStyle(
-          color: isSelected ? AppColors.primary : AppColors.textSecondary,
+          color: isSelected ? AppColors.primary : AppColors.secondary,
           fontWeight: isSelected ? FontWeight.bold : FontWeight.normal
         ),
         shape: RoundedRectangleBorder(

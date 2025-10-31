@@ -13,7 +13,7 @@ class Constants {
   // list of categories
   static const List<String> categories = [
     'general',
-    'tecnology',
+    'technology',
     'business',
     'sports',
     'health',
